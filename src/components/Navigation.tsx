@@ -1,19 +1,26 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Bitcoin } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = `/#${sectionId}`;
+    }
     setIsMenuOpen(false);
   };
 
   const navItems = [
-    { label: "Products", href: "#products" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Contact", href: "#early-access" },
+    { label: "Products", href: "#products", isScroll: true },
+    { label: "How It Works", href: "#how-it-works", isScroll: true },
+    { label: "Contact", href: "/contact", isScroll: false },
+    { label: "Privacy", href: "/privacy", isScroll: false },
   ];
 
   return (
@@ -21,23 +28,33 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
               <Bitcoin className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold">NxtFi</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => scrollToSection(item.href.slice(1))}
-                className="text-muted-foreground hover:text-foreground transition-colors font-medium"
-              >
-                {item.label}
-              </button>
+              item.isScroll ? (
+                <button
+                  key={index}
+                  onClick={() => scrollToSection(item.href.slice(1))}
+                  className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+                >
+                  {item.label}
+                </button>
+              ) : (
+                <Link
+                  key={index}
+                  to={item.href}
+                  className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             
             <Button 
@@ -64,13 +81,24 @@ export const Navigation = () => {
           <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-lg">
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => scrollToSection(item.href.slice(1))}
-                  className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
-                >
-                  {item.label}
-                </button>
+                item.isScroll ? (
+                  <button
+                    key={index}
+                    onClick={() => scrollToSection(item.href.slice(1))}
+                    className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <Link
+                    key={index}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
               
               <Button 
