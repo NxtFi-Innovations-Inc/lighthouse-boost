@@ -19,6 +19,7 @@ export const Navigation = () => {
   const navItems = [
     { label: "Products", href: "#products", isScroll: true },
     { label: "How It Works", href: "#how-it-works", isScroll: true },
+    { label: "About", href: "/about", isScroll: false },
     { label: "Contact", href: "/contact", isScroll: false },
     { label: "Privacy", href: "/privacy", isScroll: false },
   ];
