@@ -9,51 +9,17 @@ import { Users, TrendingUp, Shield, Globe, Award, Target } from "lucide-react";
 
 const About = () => {
   const stats = [
-    { value: "$50M+", label: "Assets Under Management" },
-    { value: "10,000+", label: "Active Users" },
+    { value: "50+", label: "DeFi Protocols" },
+    { value: "24/7", label: "Platform Availability" },
     { value: "15+", label: "Blockchain Networks" },
-    { value: "99.9%", label: "Uptime Guarantee" },
-  ];
-
-  const team = [
-    {
-      name: "Alex Chen",
-      role: "CEO & Founder",
-      bio: "Former Goldman Sachs VP with 10+ years in traditional finance and blockchain technology.",
-      image: "/placeholder.svg"
-    },
-    {
-      name: "Sarah Johnson",
-      role: "CTO",
-      bio: "Ex-Google engineer specializing in distributed systems and cryptocurrency infrastructure.",
-      image: "/placeholder.svg"
-    },
-    {
-      name: "Michael Rodriguez",
-      role: "Head of Product",
-      bio: "Product leader from Coinbase with expertise in user experience and regulatory compliance.",
-      image: "/placeholder.svg"
-    },
-    {
-      name: "Dr. Emily Wang",
-      role: "Chief Risk Officer",
-      bio: "PhD in Financial Engineering from Stanford, former JP Morgan risk management executive.",
-      image: "/placeholder.svg"
-    }
-  ];
-
-  const investors = [
-    { name: "Andreessen Horowitz", type: "Lead Series A", amount: "$15M" },
-    { name: "Coinbase Ventures", type: "Strategic", amount: "$8M" },
-    { name: "Pantera Capital", type: "Series A", amount: "$12M" },
-    { name: "Binance Labs", type: "Strategic", amount: "$5M" },
+    { value: "Secure", label: "Smart Contracts" },
   ];
 
   const milestones = [
-    { year: "2022", title: "Company Founded", description: "NxtFi established with seed funding" },
-    { year: "2023", title: "Series A Funding", description: "$40M raised from top VCs" },
-    { year: "2023", title: "Product Launch", description: "Beta platform goes live" },
-    { year: "2024", title: "Global Expansion", description: "Multi-region deployment" },
+    { year: "2024", title: "Platform Development", description: "Core DeFi infrastructure built" },
+    { year: "2024", title: "Security Audits", description: "Comprehensive security testing completed" },
+    { year: "2024", title: "Beta Testing", description: "Limited beta testing with select users" },
+    { year: "2024", title: "Public Launch", description: "Platform available to all users" },
   ];
 
   return (
@@ -128,70 +94,54 @@ const About = () => {
             </div>
           </section>
 
-          {/* Team Section */}
+          {/* Technology Section */}
           <section className="py-20 bg-muted/50">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
-                <Badge variant="outline" className="mb-4">Our Team</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet the Experts</h2>
+                <Badge variant="outline" className="mb-4">Our Technology</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Built for the Future</h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Our diverse team combines decades of experience in traditional finance, 
-                  blockchain technology, and product development.
+                  Our platform leverages cutting-edge blockchain technology to provide secure, 
+                  scalable, and efficient DeFi solutions.
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {team.map((member, index) => (
-                  <Card key={index} className="text-center p-6">
-                    <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <Users className="w-12 h-12 text-primary" />
-                    </div>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">{member.name}</CardTitle>
-                      <CardDescription className="text-primary font-medium">{member.role}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">{member.bio}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </section>
+              <div className="grid md:grid-cols-3 gap-8">
+                <Card className="text-center p-6">
+                  <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Shield className="w-12 h-12 text-primary" />
+                  </div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg">Security First</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">Multi-layer security protocols and smart contract audits</p>
+                  </CardContent>
+                </Card>
 
-          {/* Investors Section */}
-          <section className="py-20">
-            <div className="container mx-auto px-4">
-              <div className="text-center mb-16">
-                <Badge variant="outline" className="mb-4">Our Investors</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Backed by Industry Leaders</h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  We're proud to be supported by some of the most respected names in venture capital and crypto.
-                </p>
-              </div>
+                <Card className="text-center p-6">
+                  <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <TrendingUp className="w-12 h-12 text-primary" />
+                  </div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg">High Performance</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">Optimized for speed and efficiency across multiple blockchains</p>
+                  </CardContent>
+                </Card>
 
-              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {investors.map((investor, index) => (
-                  <Card key={index} className="p-6">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="text-xl font-bold mb-2">{investor.name}</h3>
-                        <Badge variant="secondary" className="mb-2">{investor.type}</Badge>
-                        <p className="text-2xl font-bold text-primary">{investor.amount}</p>
-                      </div>
-                      <TrendingUp className="w-12 h-12 text-primary" />
-                    </div>
-                  </Card>
-                ))}
-              </div>
-
-              <div className="text-center mt-12">
-                <p className="text-lg text-muted-foreground mb-6">
-                  Total Funding Raised: <span className="font-bold text-primary">$40M</span>
-                </p>
-                <Button size="lg">
-                  Investor Relations
-                </Button>
+                <Card className="text-center p-6">
+                  <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Users className="w-12 h-12 text-primary" />
+                  </div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg">User Focused</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">Intuitive interface designed for both beginners and experts</p>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </section>
