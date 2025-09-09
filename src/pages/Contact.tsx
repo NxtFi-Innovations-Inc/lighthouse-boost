@@ -1,43 +1,12 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SEO } from "@/components/SEO";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Mail, Phone, MapPin, Send, MessageSquare, Users, Headphones } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { ContactForm } from "@/components/ContactForm";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { MapPin, Phone, Mail, Clock, MessageCircle, Headphones } from "lucide-react";
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Simulate form submission
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
+const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
@@ -61,12 +30,12 @@ export default function Contact() {
 
   const supportOptions = [
     {
-      icon: MessageSquare,
+      icon: MessageCircle,
       title: "General Inquiries",
       description: "Questions about our services and platform"
     },
     {
-      icon: Users,
+      icon: Clock,
       title: "Partnership",
       description: "Explore partnership opportunities"
     },
@@ -82,7 +51,7 @@ export default function Contact() {
       <SEO
         title="Contact Us - NxtFi | Crypto Payment Solutions"
         description="Get in touch with NxtFi for crypto payment integration support. 24/7 customer service, technical support, and partnership inquiries."
-        
+        keywords="nxtfi contact, crypto payment support, technical support, partnership"
         type="website"
       />
       
@@ -133,83 +102,7 @@ export default function Contact() {
             <div className="container mx-auto px-4">
               <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                 {/* Contact Form */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-2xl">Send us a Message</CardTitle>
-                    <p className="text-muted-foreground">
-                      Fill out the form below and we'll get back to you within 24 hours.
-                    </p>
-                  </CardHeader>
-                  <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <label htmlFor="name" className="block text-sm font-medium mb-2">
-                            Full Name *
-                          </label>
-                          <Input
-                            id="name"
-                            name="name"
-                            type="text"
-                            required
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder="Your full name"
-                          />
-                        </div>
-                        <div>
-                          <label htmlFor="email" className="block text-sm font-medium mb-2">
-                            Email Address *
-                          </label>
-                          <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            required
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="your.email@company.com"
-                          />
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                          Subject *
-                        </label>
-                        <Input
-                          id="subject"
-                          name="subject"
-                          type="text"
-                          required
-                          value={formData.subject}
-                          onChange={handleChange}
-                          placeholder="What can we help you with?"
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="message" className="block text-sm font-medium mb-2">
-                          Message *
-                        </label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          required
-                          rows={5}
-                          value={formData.message}
-                          onChange={handleChange}
-                          placeholder="Tell us more about your inquiry..."
-                        />
-                      </div>
-                      
-                      <Button type="submit" className="w-full" size="lg">
-                        <Send className="w-4 h-4 mr-2" />
-                        Send Message
-                      </Button>
-                    </form>
-                  </CardContent>
-                </Card>
+                <ContactForm />
 
                 {/* Support Options */}
                 <div className="space-y-6">
@@ -248,9 +141,9 @@ export default function Contact() {
                       <p className="text-sm text-muted-foreground mb-4">
                         Check our FAQ section for immediate answers to common questions.
                       </p>
-                      <Button variant="outline" size="sm">
+                      <a href="/docs" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3">
                         View FAQ
-                      </Button>
+                      </a>
                     </CardContent>
                   </Card>
                 </div>
@@ -263,4 +156,6 @@ export default function Contact() {
       </div>
     </>
   );
-}
+};
+
+export default Contact;

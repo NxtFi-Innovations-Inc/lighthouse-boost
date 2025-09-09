@@ -32,9 +32,11 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-              <Bitcoin className="w-5 h-5 text-primary-foreground" />
-            </div>
+            <img 
+              src="/lovable-uploads/9ca025af-4e01-410a-92fb-8487ab58eadc.png" 
+              alt="NxtFi Logo" 
+              className="w-8 h-8 object-contain"
+            />
             <span className="text-xl font-bold">NxtFi</span>
           </Link>
 

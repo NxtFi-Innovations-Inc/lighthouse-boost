@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, ArrowRight, TrendingUp, Shield, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   const blogPosts = [
@@ -15,7 +16,7 @@ const Blog = () => {
       category: "Industry Insights",
       date: "March 15, 2024",
       readTime: "5 min read",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=400&fit=crop",
       featured: true
     },
     {
@@ -25,7 +26,7 @@ const Blog = () => {
       category: "Technical Guide",
       date: "March 12, 2024",
       readTime: "8 min read",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
       featured: false
     },
     {
@@ -35,7 +36,7 @@ const Blog = () => {
       category: "Education",
       date: "March 10, 2024",
       readTime: "6 min read",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop",
       featured: false
     },
     {
@@ -45,7 +46,7 @@ const Blog = () => {
       category: "Security",
       date: "March 8, 2024",
       readTime: "7 min read",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=400&fit=crop",
       featured: false
     },
     {
@@ -55,7 +56,7 @@ const Blog = () => {
       category: "Case Study",
       date: "March 5, 2024",
       readTime: "4 min read",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=400&fit=crop",
       featured: false
     },
     {
@@ -65,7 +66,7 @@ const Blog = () => {
       category: "Market Analysis",
       date: "March 3, 2024",
       readTime: "9 min read",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop",
       featured: false
     }
   ];
@@ -153,9 +154,11 @@ const Blog = () => {
                           {post.readTime}
                         </div>
                       </div>
-                      <Button className="flex items-center gap-2">
-                        Read More
-                        <ArrowRight className="w-4 h-4" />
+                      <Button className="flex items-center gap-2" asChild>
+                        <Link to={`/blog/${post.id}`}>
+                          Read More
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
                       </Button>
                     </div>
                   </div>
@@ -194,9 +197,11 @@ const Blog = () => {
                           {post.readTime}
                         </div>
                       </div>
-                      <Button variant="outline" className="w-full flex items-center gap-2">
-                        Read More
-                        <ArrowRight className="w-4 h-4" />
+                      <Button variant="outline" className="w-full flex items-center gap-2" asChild>
+                        <Link to={`/blog/${post.id}`}>
+                          Read More
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -216,14 +221,17 @@ const Blog = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                  <form name="newsletter" method="POST" data-netlify="true" className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="hidden" name="form-name" value="newsletter" />
                     <input
                       type="email"
+                      name="email"
                       placeholder="Enter your email"
                       className="flex-1 px-3 py-2 border border-border rounded-md bg-background"
+                      required
                     />
-                    <Button>Subscribe</Button>
-                  </div>
+                    <Button type="submit">Subscribe</Button>
+                  </form>
                   <p className="text-sm text-muted-foreground mt-4">
                     No spam, unsubscribe at any time.
                   </p>

@@ -15,20 +15,39 @@ export const EarlyAccess = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Success!",
-      description: "Thank you for your interest! We'll be in touch soon.",
-    });
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-    setFormData({ name: "", email: "", company: "" });
-    setIsSubmitting(false);
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Thank you for your interest! We'll be in touch soon.",
+        });
+        form.reset();
+        setFormData({ name: "", email: "", company: "" });
+      } else {
+        throw new Error("Submission failed");
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "Please try again or contact us directly at support@nxtfi.xyz",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -89,7 +108,8 @@ export const EarlyAccess = () => {
             {/* Form */}
             <Card className="bg-card/50 backdrop-blur-sm border-border/50">
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} name="early-access" method="POST" data-netlify="true" className="space-y-6">
+                  <input type="hidden" name="form-name" value="early-access" />
                   <div className="space-y-4">
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />

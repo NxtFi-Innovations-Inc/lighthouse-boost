@@ -14,7 +14,7 @@ export const SEO = ({
   title = "NxtFi - Accept Crypto, Receive Fiat Instantly",
   description = "Transform your business with NxtFi's seamless crypto-to-fiat payment platform. Accept Bitcoin, Ethereum, and other cryptocurrencies while receiving stable fiat currency in your bank account.",
   keywords = "crypto payments, bitcoin, ethereum, fiat conversion, payment processing, blockchain, cryptocurrency, fintech",
-  image = "https://www.nxtfi.xyz/assets/images/hero-image.webp",
+  image = "/src/assets/hero-image.webp",
   url = "https://www.nxtfi.xyz",
   type = "website",
   structuredData

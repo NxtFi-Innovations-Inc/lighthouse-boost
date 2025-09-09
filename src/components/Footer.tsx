@@ -15,9 +15,11 @@ export const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-                <Bitcoin className="w-5 h-5 text-primary-foreground" />
-              </div>
+              <img 
+                src="/lovable-uploads/9ca025af-4e01-410a-92fb-8487ab58eadc.png" 
+                alt="NxtFi Logo" 
+                className="w-8 h-8 object-contain"
+              />
               <span className="text-xl font-bold">NxtFi</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
@@ -69,12 +71,12 @@ export const Footer = () => {
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection('early-access')}
+                <a 
+                  href="/docs"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Documentation
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -84,20 +86,20 @@ export const Footer = () => {
             <h3 className="font-semibold">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <button 
-                  onClick={() => scrollToSection('features')}
+                <a 
+                  href="/about"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   About Us
-                </button>
+                </a>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection('early-access')}
+                <a 
+                  href="/contact"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Contact
-                </button>
+                </a>
               </li>
               <li>
                 <a 
@@ -171,12 +173,12 @@ export const Footer = () => {
             <a href="/terms" className="hover:text-foreground transition-colors">
               Terms
             </a>
-            <button 
-              onClick={() => scrollToSection('early-access')}
+            <a 
+              href="/contact"
               className="hover:text-foreground transition-colors"
             >
               Contact
-            </button>
+            </a>
           </div>
         </div>
       </div>
