@@ -4,18 +4,18 @@
 
 @layer base {
   :root {
-    /* Primary colors - grey theme */
-    --primary: 220 9% 46%; /* Grey #64748b */
+    /* Primary crypto-themed colors */
+    --primary: 25 95% 53%; /* Bitcoin orange #FF6B35 */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 220 13% 69%;
+    --primary-glow: 32 100% 60%;
     
     /* Secondary colors */
     --secondary: 210 40% 8%;
     --secondary-foreground: 210 40% 98%;
     
     /* Accent colors */
-    --accent: 220 9% 46%; /* Grey accent */
-    --accent-foreground: 220 8% 15%;
+    --accent: 270 95% 75%; /* Purple accent */
+    --accent-foreground: 270 8% 15%;
     
     /* Background colors */
     --background: 222 84% 5%; /* Dark navy */
