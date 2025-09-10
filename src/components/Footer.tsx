@@ -1,4 +1,4 @@
-import { Bitcoin, Twitter, Linkedin, Github, Mail } from "lucide-react";
+import { Bitcoin, Twitter, Linkedin, Instagram, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
@@ -16,7 +16,7 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <img 
-                src="/lovable-uploads/9ca025af-4e01-410a-92fb-8487ab58eadc.png" 
+                src="/lovable-uploads/c69aea79-4539-4e30-a63b-a1f2dc09027d.png" 
                 alt="NxtFi Logo" 
                 className="w-8 h-8 object-contain"
               />
@@ -27,17 +27,25 @@ export const Footer = () => {
               Accept cryptocurrency, receive fiat currency.
             </p>
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Twitter className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
+                <a href="https://x.com/NxtFi_UAE" target="_blank" rel="noopener noreferrer">
+                  <Twitter className="h-4 w-4" />
+                </a>
               </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Linkedin className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
+                <a href="https://www.linkedin.com/company/nxtfi-innovations-inc/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-4 w-4" />
+                </a>
               </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Github className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
+                <a href="https://www.instagram.com/nxtfi_uae?igsh=Y3d6bGdpbDczZmE0&utm_source=qr" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="h-4 w-4" />
+                </a>
               </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Mail className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
+                <a href="https://www.facebook.com/share/15eRbGNrgG/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+                  <Mail className="h-4 w-4" />
+                </a>
               </Button>
             </div>
           </div>

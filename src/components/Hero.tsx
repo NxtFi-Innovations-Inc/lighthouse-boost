@@ -69,6 +69,7 @@ export const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
+              onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
               className="border-primary/20 hover:bg-primary/5 px-8 py-6 text-lg"
             >
               Learn More

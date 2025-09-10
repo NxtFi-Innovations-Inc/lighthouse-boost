@@ -33,7 +33,7 @@ export const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img 
-              src="/lovable-uploads/9ca025af-4e01-410a-92fb-8487ab58eadc.png" 
+              src="/lovable-uploads/c69aea79-4539-4e30-a63b-a1f2dc09027d.png" 
               alt="NxtFi Logo" 
               className="w-8 h-8 object-contain"
             />
