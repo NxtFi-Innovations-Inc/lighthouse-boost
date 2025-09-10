@@ -6,17 +6,30 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export const InvestorForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (!turnstileToken) {
+      toast({
+        title: "Security Check Required",
+        description: "Please complete the security verification.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    formData.append("cf-turnstile-response", turnstileToken);
 
     try {
       const response = await fetch("/", {
@@ -136,10 +149,19 @@ export const InvestorForm = () => {
             />
           </div>
 
+          <div className="flex justify-center">
+            <Turnstile
+              siteKey="0x4AAAAAABmAawuw8zXDRfZv"
+              onSuccess={setTurnstileToken}
+              onError={() => setTurnstileToken("")}
+              onExpire={() => setTurnstileToken("")}
+            />
+          </div>
+
           <Button 
             type="submit" 
             className="w-full" 
-            disabled={isSubmitting}
+            disabled={isSubmitting || !turnstileToken}
           >
             {isSubmitting ? "Submitting..." : "Submit Inquiry"}
           </Button>

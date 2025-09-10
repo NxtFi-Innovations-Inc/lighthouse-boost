@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Mail, User, Building, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export const EarlyAccess = () => {
   const [formData, setFormData] = useState({
@@ -13,14 +14,26 @@ export const EarlyAccess = () => {
     company: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (!turnstileToken) {
+      toast({
+        title: "Security Check Required",
+        description: "Please complete the security verification.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    formData.append("cf-turnstile-response", turnstileToken);
 
     try {
       const response = await fetch("/", {
@@ -149,10 +162,19 @@ export const EarlyAccess = () => {
                     </div>
                   </div>
 
+                  <div className="flex justify-center">
+                    <Turnstile
+                      siteKey="0x4AAAAAABmAawuw8zXDRfZv"
+                      onSuccess={setTurnstileToken}
+                      onError={() => setTurnstileToken("")}
+                      onExpire={() => setTurnstileToken("")}
+                    />
+                  </div>
+
                   <Button 
                     type="submit" 
                     className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground group"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !turnstileToken}
                   >
                     {isSubmitting ? (
                       "Submitting..."
