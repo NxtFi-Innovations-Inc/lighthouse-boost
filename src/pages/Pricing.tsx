@@ -4,7 +4,6 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Check, Star, Zap, Shield, Headphones } from "lucide-react";
 
 const Pricing = () => {
@@ -259,42 +258,52 @@ const Pricing = () => {
                 </p>
               </div>
 
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>Are there any setup fees?</AccordionTrigger>
-                  <AccordionContent>
-                    No, there are no setup fees for any of our plans. You can get started immediately without any upfront costs.
-                  </AccordionContent>
-                </AccordionItem>
+              <div className="grid gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Are there any setup fees?</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>No, there are no setup fees for any of our plans. You can get started immediately without any upfront costs.</p>
+                  </CardContent>
+                </Card>
 
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>Can I change plans later?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any differences.
-                  </AccordionContent>
-                </AccordionItem>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Can I change plans later?</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any differences.</p>
+                  </CardContent>
+                </Card>
 
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>What cryptocurrencies do you support?</AccordionTrigger>
-                  <AccordionContent>
-                    We support Bitcoin (BTC), Ethereum (ETH), Tether (USDT), and over 50 other major cryptocurrencies. New currencies are added regularly.
-                  </AccordionContent>
-                </AccordionItem>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>What cryptocurrencies do you support?</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>We support Bitcoin (BTC), Ethereum (ETH), Tether (USDT), and over 50 other major cryptocurrencies. New currencies are added regularly.</p>
+                  </CardContent>
+                </Card>
 
-                <AccordionItem value="item-4">
-                  <AccordionTrigger>How fast are settlements?</AccordionTrigger>
-                  <AccordionContent>
-                    Merchant Portal settlements are processed within 24 hours. Enterprise customers can get custom settlement schedules including same-day processing.
-                  </AccordionContent>
-                </AccordionItem>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>How fast are settlements?</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>Merchant Portal settlements are processed within 24 hours. Enterprise customers can get custom settlement schedules including same-day processing.</p>
+                  </CardContent>
+                </Card>
 
-                <AccordionItem value="item-5">
-                  <AccordionTrigger>Is there a money-back guarantee?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes, we offer a 30-day money-back guarantee on all paid plans. If you're not satisfied, we'll refund your payment in full.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Is there a money-back guarantee?</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>Yes, we offer a 30-day money-back guarantee on all paid plans. If you're not satisfied, we'll refund your payment in full.</p>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </section>
 
