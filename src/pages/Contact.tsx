@@ -2,6 +2,7 @@ import { SEO } from "@/components/SEO";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
+import { FAQ } from "@/components/FAQ";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Phone, Mail, Clock, MessageCircle, Headphones } from "lucide-react";
@@ -74,28 +75,7 @@ const Contact = () => {
             </div>
           </section>
 
-          {/* Contact Info Cards */}
-          <section className="py-16 bg-muted/30">
-            <div className="container mx-auto px-4">
-              <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                {contactInfo.map((info, index) => {
-                  const Icon = info.icon;
-                  return (
-                    <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                      <CardContent className="p-8">
-                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <Icon className="w-8 h-8 text-primary" />
-                        </div>
-                        <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
-                        <p className="text-foreground font-medium mb-1">{info.content}</p>
-                        <p className="text-sm text-muted-foreground">{info.description}</p>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
+          {/* Contact form section only */}
 
           {/* Contact Form & Support Options */}
           <section className="py-20">
@@ -141,15 +121,25 @@ const Contact = () => {
                       <p className="text-sm text-muted-foreground mb-4">
                         Check our FAQ section for immediate answers to common questions.
                       </p>
-                      <a href="/docs" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3">
+                      <button 
+                        onClick={() => {
+                          const faqSection = document.getElementById('faq-section');
+                          if (faqSection) {
+                            faqSection.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }}
+                        className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3"
+                      >
                         View FAQ
-                      </a>
+                      </button>
                     </CardContent>
                   </Card>
                 </div>
               </div>
             </div>
           </section>
+          {/* FAQ Section */}
+          <FAQ />
         </main>
 
         <Footer />

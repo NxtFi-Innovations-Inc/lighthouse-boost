@@ -17,11 +17,10 @@ export const Navigation = () => {
   };
 
   const navItems = [
-    { label: "Products", href: "#products", isScroll: true },
-    { label: "How It Works", href: "#how-it-works", isScroll: true },
+    { label: "Features", href: "/features", isScroll: false },
+    { label: "Solutions", href: "/solutions", isScroll: false },
     { label: "Pricing", href: "/pricing", isScroll: false },
-    { label: "Docs", href: "/docs", isScroll: false },
-    { label: "Blog", href: "/blog", isScroll: false },
+    { label: "API", href: "/api", isScroll: false },
     { label: "About", href: "/about", isScroll: false },
     { label: "Contact", href: "/contact", isScroll: false },
   ];
