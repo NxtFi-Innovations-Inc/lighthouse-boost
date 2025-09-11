@@ -14,7 +14,7 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <img src="/lovable-uploads/9ca025af-4e01-410a-92fb-8487ab58eadc.png" alt="NxtFi Logo" className="w-8 h-8 object-contain" />
-              <span className="text-xl font-bold">NxtFi innovations Inc.</span>
+              <span className="text-xl font-bold">NxtFi Innovations Inc.</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Seamless crypto-to-fiat payment platform for modern businesses. 
