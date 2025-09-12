@@ -75,7 +75,7 @@ const Pricing = () => {
                       </li>
                     </ul>
                     <Button 
-                      onClick={() => scrollToSection('early-access')}
+                      onClick={() => window.location.href = '/#early-access'}
                       className="w-full"
                       variant="outline"
                     >
@@ -127,8 +127,8 @@ const Pricing = () => {
                         <span>Priority support</span>
                       </li>
                     </ul>
-                    <Button 
-                      onClick={() => scrollToSection('early-access')}
+    <Button 
+                      onClick={() => window.location.href = '/#early-access'}
                       className="w-full"
                     >
                       Start Free Trial
@@ -173,7 +173,7 @@ const Pricing = () => {
                       </li>
                     </ul>
                     <Button 
-                      onClick={() => scrollToSection('early-access')}
+                      onClick={() => window.location.href = '/contact'}
                       className="w-full"
                       variant="outline"
                     >
@@ -316,7 +316,7 @@ const Pricing = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
-                  onClick={() => scrollToSection('early-access')}
+                  onClick={() => window.location.href = '/#early-access'}
                   size="lg"
                   className="flex items-center gap-2"
                 >
@@ -326,6 +326,7 @@ const Pricing = () => {
                 <Button 
                   variant="outline" 
                   size="lg"
+                  onClick={() => window.location.href = '/contact'}
                   className="flex items-center gap-2"
                 >
                   <Headphones className="w-5 h-5" />

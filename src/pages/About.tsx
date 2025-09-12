@@ -175,8 +175,156 @@ const About = () => {
             </div>
           </section>
 
-          {/* Values */}
+          {/* Our Growth Trajectory */}
           <section className="py-20">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16">
+                <Badge variant="outline" className="mb-4">Our Growth</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Growth Trajectory</h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  From startup to industry leader, our journey reflects our commitment to innovation and excellence.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <Card className="text-center p-6">
+                  <div className="text-3xl font-bold text-primary mb-2">2022</div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg">Foundation</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">Company founded with vision to bridge crypto and traditional finance</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center p-6">
+                  <div className="text-3xl font-bold text-primary mb-2">2023</div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg">Development</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">Core platform development and initial partnerships established</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center p-6">
+                  <div className="text-3xl font-bold text-primary mb-2">2024</div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg">Launch</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">Public launch and rapid user adoption across multiple markets</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center p-6">
+                  <div className="text-3xl font-bold text-primary mb-2">2025</div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg">Expansion</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">Global expansion and next-generation product development</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </section>
+
+          {/* NxtFi By Numbers */}
+          <section className="py-20 bg-muted/30">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16">
+                <Badge variant="outline" className="mb-4">Our Impact</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">NxtFi By Numbers</h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Our platform's growth reflects the trust and confidence of our global user base.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div className="text-center">
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">$100M+</div>
+                  <div className="text-lg font-semibold mb-2">Transaction Volume</div>
+                  <div className="text-sm text-muted-foreground">Total crypto processed through our platform</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">10K+</div>
+                  <div className="text-lg font-semibold mb-2">Active Merchants</div>
+                  <div className="text-sm text-muted-foreground">Businesses using our payment solutions</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">50+</div>
+                  <div className="text-lg font-semibold mb-2">Supported Currencies</div>
+                  <div className="text-sm text-muted-foreground">Cryptocurrencies and fiat currencies supported</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">99.9%</div>
+                  <div className="text-lg font-semibold mb-2">Uptime</div>
+                  <div className="text-sm text-muted-foreground">Platform reliability and availability</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* For Visionary Investors */}
+          <section className="py-20">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16">
+                <Badge variant="outline" className="mb-4">Investment Opportunity</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">For Visionary Investors</h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Join us in revolutionizing the future of finance and building the next generation of payment infrastructure.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <Card className="p-8">
+                  <CardHeader className="text-center pb-6">
+                    <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
+                    <CardTitle className="text-xl">Market Opportunity</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-center">
+                      The global cryptocurrency payment market is projected to reach $12.3 billion by 2025, 
+                      representing a compound annual growth rate of over 25%.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="p-8">
+                  <CardHeader className="text-center pb-6">
+                    <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
+                    <CardTitle className="text-xl">Competitive Advantage</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-center">
+                      Our proprietary technology offers superior security, faster processing, and lower fees 
+                      compared to traditional payment solutions.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="p-8">
+                  <CardHeader className="text-center pb-6">
+                    <Users className="w-12 h-12 text-primary mx-auto mb-4" />
+                    <CardTitle className="text-xl">Experienced Team</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-center">
+                      Our leadership team combines decades of experience in fintech, blockchain technology, 
+                      and enterprise software development.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </section>
+
+          {/* Values */}
+          <section className="py-20 bg-muted/30">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <Badge variant="outline" className="mb-4">Our Values</Badge>
